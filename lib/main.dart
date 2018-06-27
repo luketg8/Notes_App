@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: new MyHomePage(title: 'My Notes'),
+      home: new MyHomePage(title: 'Take Notes'),
     );
   }
 }
@@ -24,7 +24,7 @@ class Note extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Container(
       child: new Row(children: <Widget>[
-        new IconButton(icon: new Icon(Icons.note), onPressed: null),
+        new Icon(Icons.note),
         new Text(noteText),
       ]),
     );
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             new FloatingActionButton(
-                onPressed: _notes.isEmpty ? null : () => _handleSubmitted(_textController.text),
+                onPressed: () => _handleSubmitted(_textController.text),
                 tooltip: 'Create New Note',
                 child: new Icon(Icons.add)
                 )
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: (_, int index) => _notes[index],
               itemCount: _notes.length,
             )),
-            new Divider(height: 5.0),
+            new Divider(height: 1.0),
             new Container(
               decoration: new BoxDecoration(color: Theme.of(context).cardColor),
               child: _addNote(),
