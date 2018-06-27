@@ -1,2 +1,8 @@
-# Notes_App
-Note taking app created using Flutter and the Dart programming language
+# notes
+
+A new Flutter project.
+
+## Getting Started
+
+For help getting started with Flutter, view our online
+[documentation](https://flutter.io/).
