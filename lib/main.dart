@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             new FloatingActionButton(
-                onPressed: () => _handleSubmitted(_textController.text),
+                onPressed: _notes.isEmpty ? null : () => _handleSubmitted(_textController.text),
                 tooltip: 'Create New Note',
                 child: new Icon(Icons.add)
                 )
