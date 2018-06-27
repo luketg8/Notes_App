@@ -1,4 +1,0 @@
-#Wed Jun 27 21:44:08 BST 2018
-base.0=/home/luke/Documents/Projects/Notes_App/build/app/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/luke/Documents/Projects/Notes_App/android/app/src/main/assets"/><source path="/home/luke/Documents/Projects/Notes_App/build/app/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/home/luke/Documents/Projects/Notes_App/android/app/src/debug/assets"/></dataSet></merger>
