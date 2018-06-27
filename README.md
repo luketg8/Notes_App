@@ -1,8 +1,7 @@
-# notes
+A note taking app implemented using the Flutter (https://flutter.io/) framework and the Dart programming language.
 
-A new Flutter project.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+<p align="center">
+  <img src="assets/new_note.jpg" />
+  <img src="assets/notes.jpg" />
+  <img src="assets/clear.jpg" />
+</p>

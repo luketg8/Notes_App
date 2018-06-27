@@ -23,11 +23,10 @@ class Note extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new Row(
-        children: <Widget>[   
-            new IconButton(icon: new Icon(Icons.done), onPressed: null),
-            new Text(noteText),
-        ]),
+      child: new Row(children: <Widget>[
+        new IconButton(icon: new Icon(Icons.note), onPressed: null),
+        new Text(noteText),
+      ]),
     );
   }
 }
@@ -47,11 +46,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _handleSubmitted(String text) {
     _textController.clear();
-    Note note = new Note(
-      noteText: text,
-    );
     setState(() {
-      _notes.insert(0, note);
+      _notes.insert(
+          0,
+          new Note(
+            noteText: text,
+          ));
+    });
+  }
+
+  void _clearAll() {
+    setState(() {
+      _notes.clear();
     });
   }
 
@@ -59,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return new IconTheme(
       data: new IconThemeData(color: Theme.of(context).accentColor),
       child: new Container(
-          margin: const EdgeInsets.symmetric(horizontal: 8.0),
+          margin: const EdgeInsets.symmetric(horizontal: 10.0),
           child: new Row(children: <Widget>[
             new Flexible(
               child: new TextField(
@@ -67,7 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration:
                     new InputDecoration.collapsed(hintText: "Write a note"),
               ),
-            )])),
+            ),
+            new FloatingActionButton(
+                onPressed: () => _handleSubmitted(_textController.text),
+                tooltip: 'Create New Note',
+                child: new Icon(Icons.add)
+                )
+          ])),
     );
   }
 
@@ -80,22 +92,23 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: new Container(
             child: new Column(
-            children: <Widget>[
+          children: <Widget>[
+            new FloatingActionButton(
+                onPressed: _notes.isEmpty ? null : () => _clearAll(),
+                shape: RoundedRectangleBorder(),
+                backgroundColor: Colors.red,
+                tooltip: 'Clear Notes',
+                child: new Icon(Icons.clear)),
             new Flexible(
               child: new ListView.builder(
-              padding: new EdgeInsets.all(8.0),
+              padding: new EdgeInsets.all(2.0),
               itemBuilder: (_, int index) => _notes[index],
               itemCount: _notes.length,
             )),
-            new Divider(height: 1.0),
+            new Divider(height: 5.0),
             new Container(
               decoration: new BoxDecoration(color: Theme.of(context).cardColor),
               child: _addNote(),
-            ),
-            new FloatingActionButton(
-              onPressed: () => _handleSubmitted(_textController.text),
-              tooltip: 'Create New Note',
-              child: new Icon(Icons.add)
             ),
           ],
         )));
